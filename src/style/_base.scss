@@ -1,3 +1,40 @@
+$background: #121212;
+$white: #FCFCFC;
+$mainBrandColor: #FFBD59;
+$secondaryBrandColor: #51B4BC;
+
+// general
+@font-face {
+    font-family: "migraBold";
+    src: url(/public/fonts/Migra\ Extrabold\ 800.otf);
+}
+
+@font-face {
+    font-family: "migraLight";
+    src: url(/public/fonts/Migra\ Extralight\ 200.otf);
+}
+
 body{
-    
+    background-color: $background;
+    color: $white;
+}
+
+h1, h2, h3{
+    font-family: "migraBold";
+}
+
+h1, h2{
+    color: $mainBrandColor;
+}
+
+img{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+header{
+    min-height: 100vh;
+    background-image: url("/public/images/puppy.jpg");
+    background-position: center;
+    background-size: cover;
 }
