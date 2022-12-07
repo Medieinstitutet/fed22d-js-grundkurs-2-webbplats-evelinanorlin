@@ -1,0 +1,100 @@
+@media screen and (min-width: 750px) {
+
+    //general
+    h2{
+        font-size: 3.5rem;
+    }
+
+    h3{
+        font-size: 2.5rem;
+    }
+
+    h3, p{
+        margin-bottom: 30px;
+    }
+
+    p{
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        text-align: left;
+    }
+
+//nav
+.mobile-nav{
+    button{
+        top: 30px;
+        right: 20px;
+
+        span{
+            width: 70px;
+            height: 8px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .mobile-menu{
+        width: 80%;
+        right: 0;
+
+        ul{
+            li{
+                a{
+                font-size: 3rem;
+            }
+        }
+    }
+}
+}
+
+   //header
+   header{
+    h1{
+        font-size: 5rem;
+    }
+
+    h3{
+        font-size: 3rem;
+    }
+
+    button{
+        margin-bottom: 30px;
+    }
+
+   }
+
+   .about{
+    .background-image-1, 
+    .background-image-2,{
+        height: 500px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+
+    p{
+        span{
+            font-size: 2.3rem;
+            line-height: 4rem;
+        }
+    }
+
+
+}
+
+.services{
+    .background-image-3, 
+    .background-image-4,{
+         height: 500px;
+         margin-top: 60px;
+         margin-bottom: 60px;
+    }
+    button{
+        margin-top: 60px;
+    }
+ }
+
+ .contact{
+    label{
+        font-size: 1.2rem;
+    }
+ }
+}

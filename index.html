@@ -6,6 +6,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/ico" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/bae5c522cf.js" crossorigin="anonymous"></script>
 
   <!-- lägga in metataggar och open graph -->
@@ -14,14 +15,34 @@
 
 <body>
   <main>
-    <nav></nav>
+    <nav>
+      <div class="mobile-nav">
+        <button>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="mobile-menu">
+          <div class="background"></div>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#" class="btn">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <header>
-      <h3>Evelina Norlin, explorer of</h3>
-      <h1>Yoga and Somatic movement</h1>
-      <button>Practice with me</button>
-      <div>
-        <i class="fa-brands fa-square-instagram"></i>
-        <i class="fa-brands fa-square-facebook"></i>
+      <div class="header-container">
+        <h3>Evelina Norlin</h3>
+        <h1>Yoga and Somatic movement</h1>
+        <button>Practice with me</button>
+        <div>
+          <i class="fa-brands fa-square-instagram"></i>
+          <i class="fa-brands fa-square-facebook"></i>
+        </div>
       </div>
     </header>
     <section class="about">
@@ -38,6 +59,7 @@
         ratione in voluptatum atque quo quisquam recusandae
         quo veniam alias.</p>
       <img src="public/images/pray.jpg" alt="Evelina in a yoga position" height="200" width="200" loading="lazy">
+      <div class="background-image-1"></div>
       <h3>The practice</h3>
       <p>Vel sequi quis id praesentium nihil At recusandae
         eligendi et ipsam ratione. Vel minus harum quo veritatis
@@ -47,16 +69,17 @@
         eligendi et ipsam ratione. Vel minus harum quo veritatis
         praesentium quo rerum rerum ut eligendi dolorem ut
         harum autem id totam enim non odit repellat. </p>
-      <img src="public/images/yoga_class.jpeg" alt="a yoga class in a tent" height="300" width="500" loading="lazy">
+      <div class="background-image-2"></div>
+
       <!-- hidden on mobile -->
-      <p>“You do not have to be good.
-        You do not have to walk on your knees
-        for a hundred miles through the desert
-        repenting.
-        You only have to let the soft animal of your
-        body love what it loves.”
-        - Mary Oliver
-      </p>
+      <p><span>“You do not have to be good. <br>
+          You do not have to walk on your knees
+          for a hundred miles through the desert, <br>
+          repenting. <br>
+          You only have to let the soft animal of your
+          body love what it loves.”<br>
+          - Mary Oliver
+        </span></p>
     </section>
     <section class="services">
       <h2>Services</h2>
@@ -68,25 +91,39 @@
         praesentium quo rerum rerum ut eligendi dolorem ut arum
         autem id totam enim non odit repellat.
       </p>
+      <button>Contact for booking</button>
+      <div class="background-image-3"></div>
       <img src="public/images/squat.jpg" alt="woman in a squat position" height="300" width="500" loading="lazy">
       <h3>Thai Yoga massage</h3>
       <p>Vel sequi quis id praesentium nihil At recusandae
         eligendi et ipsam ratione. Vel minus harum quo veritatis
         praesentium quo rerum rerum ut eligendi dolorem ut arum
         autem id totam enim non odit repellat.</p>
-      <img src="public/images/massage.jpeg" alt="woman getting a massage" height="300" width="500" loading="lazy">
       <button>Contact for booking</button>
+      <div class="background-image-4"></div>
+      <img src="public/images/massage.jpeg" alt="woman getting a massage" height="300" width="500" loading="lazy">
     </section>
     <section class="testimonials">
       <h2>Testimonials</h2>
       <p>add testimonials in a slider here</p>
     </section>
     <section class="events">
+      <h2>Events</h2>
       <p>here goes "cards" created with objects in javascript</p>
     </section>
     <section class="contact">
       <h2>Contact</h2>
-      <p>Contact form</p>
+      <form>
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="name">Email</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="subject">Subject</label><br>
+        <input type="text" id="subject" name="subject"><br>
+        <label for="message">Message</label><br>
+        <input type="text" id="message" class="message" name="message"><br>
+        <button>Send</button>
+      </form>
     </section>
     <footer>
       <p>copyright, contact etc</p>
