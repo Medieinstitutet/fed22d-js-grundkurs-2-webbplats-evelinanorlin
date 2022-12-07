@@ -11,6 +11,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-right: 30px;
+        margin-left: 30px;
+        position: fixed;
+        width: 100%;
+
+        .menu-background{
+            width: 100%;
+            height: 200px;
+
+        }
 
         ul{
             display: flex;
@@ -18,15 +28,17 @@
             list-style-type: none;
             align-items: center;
             
-            li{
-                a{
-                    text-decoration: none;
-                    margin-left: 15px;
-                    margin-right: 15px;
-                    font-size: 1.2rem;
-            }
-        }
+             li{
+                 a{
+                    color: $mainBrandColor;
+                     text-decoration: none;
+                     margin-left: 20px;
+                     margin-right: 20px;
+                     font-size: 1.2rem;
+             }
+         }
     }
+}
 
     header{
         margin-bottom: 0;
@@ -34,7 +46,6 @@
 
     .about{
         margin-top: 0;
-
 
         .about-flex{
             margin-top: 0;
@@ -114,4 +125,4 @@
         margin: 0 auto;
     }
 }
-}
+
