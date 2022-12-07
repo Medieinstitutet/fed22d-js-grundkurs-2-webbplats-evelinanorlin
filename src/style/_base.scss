@@ -6,12 +6,12 @@ $secondaryBrandColor: #51B4BC;
 // general
 @font-face {
     font-family: migraBold;
-    src: url(/public/fonts/Migra\ Extrabold\ 800.otf);
+    src: url("/public/fonts/Migra\ Extrabold\ 800.otf");
 }
 
 @font-face {
     font-family: migraLight;
-    src: url(/public/fonts/Migra\ Extralight\ 200.otf);
+    src: url("/public/fonts/Migra\ Extralight\ 200.otf");
 }
 
 body{
@@ -104,7 +104,7 @@ button, a{
         position: absolute;
         position: fixed;
         z-index: 2;
-        background: rgba(18, 18, 18, 0.9);
+        background: rgba(18, 18, 18, 90%);
 
         ul{
             height: 90vh;

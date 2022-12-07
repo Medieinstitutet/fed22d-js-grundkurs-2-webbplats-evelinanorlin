@@ -1,8 +1,8 @@
 
 
-@use "utils/a11y"; // Om det inte funkar, byt @use mot @import
-@use "vendor/reset";
+@import "utils/a11y"; // Om det inte funkar, byt @use mot @import
+@import "vendor/reset";
 
-@use "base";
-@use "tablet";
-@use "desktop";
+@import "base";
+@import "tablet";
+@import "desktop";
