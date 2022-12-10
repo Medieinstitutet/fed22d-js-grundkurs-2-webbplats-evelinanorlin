@@ -13,3 +13,16 @@ import './style/style.scss';
 // SPRÅK -> knapp för att byta språk?
 // KONTAKT -> lägga in regex, ska synas vilka fält som är obligatoriska.
 // Går det att göra formuläret fungerande?
+
+const navigation = document.querySelector('#navigation') as HTMLElement;
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  if (lastScrollY < window.scrollY) {
+    navigation.classList.add('nav-hidden');
+  } else {
+    navigation.classList.remove('nav-hidden');
+  }
+
+  lastScrollY = window.scrollY;
+});
