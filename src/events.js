@@ -1,27 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import './style/style.scss';
-
-// TODO
-
-// - RUBRIKER -> ska tonasin när de kommer i bild. Kanske en fräck animation i header-texten
-// -UPP-KNAPP -> knapp som åker med ner som går att trycka på för att åka upp
-// -POP-UP -> pop-up ruta som frågar om man vill signa upp på nyhetsbrev
-// -EVENTS -> lägga in dessa som objekt i en array. med en läs mer-knapp som öppnar
-// en pop-up med mer info om event. se till att event inte redan har varit
-// OMDÖMEN -> En slider med omdömen som går att bläddra i son går i en "cirkel"
-// SPRÅK -> knapp för att byta språk?
-// KONTAKT -> lägga in regex, ska synas vilka fält som är obligatoriska.
-// Går det att göra formuläret fungerande?
-
-// funktion för skroll-effekt på menyn
-
-// import { events } from './src/events.js';
-
-// lägga detta i annan fil men det funkade inte.
-// hur löser jag att raden är för lång i objektet?
-
-const events = [
+// eslint-disable-next-line import/prefer-default-export
+ const events = [
   {
     id: 1,
     name: 'Explorative Self Leadership',
@@ -63,17 +41,5 @@ const events = [
   },
 ]
 
-console.log(events);
 
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-  if (lastScrollY < window.scrollY) {
-    // navigation.classList.add('nav-hidden');
-    gsap.to('nav', { duration: 1, autoAlpha: 0 });
-  } else {
-    gsap.to('nav', { duration: 1, autoAlpha: 1 });
-  }
-
-  lastScrollY = window.scrollY;
-});
+export default events;

@@ -140,11 +140,6 @@ button, a{
     display: none;
 }
 
-.nav-hidden{
-    transform: translateY(-50px);
-}
-
-
 //header
 
 header{
@@ -158,6 +153,7 @@ header{
     .header-container{
         width: 90%;
         position: absolute;
+        z-index: 2;
         top: 50%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
