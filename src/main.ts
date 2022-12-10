@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import './style/style.scss';
-
 // TODO
 
 // - RUBRIKER -> ska tonasin när de kommer i bild. Kanske en fräck animation i header-texten
@@ -20,7 +19,7 @@ import './style/style.scss';
 
 // lägga detta i annan fil men det funkade inte.
 // hur löser jag att raden är för lång i objektet?
-
+// eslint-disable-next-line import/prefer-default-export
 const events = [
   {
     id: 1,
@@ -63,13 +62,12 @@ const events = [
   },
 ]
 
-console.log(events);
+// Kod för menyn, fadear in och ut vid scroll
 
 let lastScrollY = window.scrollY;
 
 window.addEventListener('scroll', () => {
   if (lastScrollY < window.scrollY) {
-    // navigation.classList.add('nav-hidden');
     gsap.to('nav', { duration: 1, autoAlpha: 0 });
   } else {
     gsap.to('nav', { duration: 1, autoAlpha: 1 });
@@ -77,3 +75,27 @@ window.addEventListener('scroll', () => {
 
   lastScrollY = window.scrollY;
 });
+
+// Skapa event-cards
+
+const eventsHolder = document.querySelector('#events-holder') as HTMLHtmlElement;
+
+// kolla på constructors, kanske går att använda här?
+
+function createEvents() {
+  for (let i = 0; i < events.length; i++) {
+    console.log(events[i].name);
+    // OBS lägg til alt-text på bilder i objekt
+    eventsHolder.innerHTML += `
+      <div>    
+        <img src='./public/images/${events[i].img}'>
+        <h3>${events[i].name}</h3>
+        <p>When? ${events[i].date}-${events[i].month}-${events[i].year}</p>
+        <p>Where? ${events[i].location}</p>
+        <p>${events[i].shortDescription}</p>
+        <button id="event-btn">Read more and sign up</button>
+      </div>`;
+  }
+}
+
+createEvents();
