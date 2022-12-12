@@ -102,7 +102,7 @@ events.forEach((event) => {
             <h3>${event.date}-${event.month}-${event.year}, ${event.startTime}-${event.finishTime}  ||  
             ${event.location} </h3>
             <p>${event.longDescription}</p>
-            <button>Sign up</button>
+            <button id ="${event.id}" onclick="window.location.href='#contact';">Sign up</button>
           </div>
        </div>
      </div>`;
@@ -110,17 +110,14 @@ events.forEach((event) => {
 
 eventsHolder.innerHTML = eventsHtml;
 
-// const closeBtn = eventsHolder.querySelector('#close-btn') as HTMLElement;
-// const eventPopup = eventsHolder.querySelector('#event-popup') as HTMLElement;
-// console.log(eventPopup)
-
-// visar en lång beskrivning av eventet vid klick på knappen
+// visar en lång beskrivning av eventet vid klick på knappen och stänger när man trycker på "X"
 eventsHolder.addEventListener('click', (e) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   const currentEventPopup = document.getElementById(e.target.id).parentElement.lastElementChild as HTMLElement;
-  currentEventPopup.style.display = 'block';
-});
 
-// // stänger den långa beskrivningen när man trycker på X
-// closeBtn.addEventListener('click', (e) => {
-//   eventPopup.style.display = 'none';
-// });
+  if (currentEventPopup.style.display === 'block') {
+    currentEventPopup.style.display = 'none';
+  } else {
+    currentEventPopup.style.display = 'block';
+  }
+});

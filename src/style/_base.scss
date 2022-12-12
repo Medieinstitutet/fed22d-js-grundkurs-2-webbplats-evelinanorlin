@@ -14,6 +14,10 @@ $secondaryBrandColor: #51B4BC;
     src: url("/public/fonts/Migra\ Extralight\ 200.otf");
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: $background;
     color: $white;
