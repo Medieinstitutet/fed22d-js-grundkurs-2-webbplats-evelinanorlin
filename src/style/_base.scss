@@ -51,12 +51,16 @@ p{
 }
 
 img{
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     width: 100%;
     display: block;
     height: auto;
     
+}
+
+button, a{
+    cursor: pointer;
 }
 
 button{
@@ -69,82 +73,21 @@ button{
         color: white;
         font-weight: 600;
         font-size: 1.2rem;
-      }
+        transition: font-size 0.5s ease-in-out;
+        border-radius: 30px;
+    
 
-button, a{
-    cursor: pointer;
-}      
-// nav
-.mobile-nav{
-    button{
-        background-image: none;
-        background-color: transparent;
-        position: absolute;
-        position: fixed;
-        right: -20px;
-        top: -10px;
-        z-index: 3;
-
-    span{
-        display: block;
-        border-radius: 3px;
-        height: 5px;
-        width: 50px;
-        margin-bottom: 10px;
-        opacity: 1;
-        box-shadow: 2px 2px 10px #121212;
-        background-color: #FFBD59;
-    }
-    }
-
-    .mobile-menu{
-        display: none;
-        height: 100vh;
-        width: 100vw;
-        position: absolute;
-        position: fixed;
-        z-index: 2;
-        background: rgba(18, 18, 18, 0.9);
-
-        ul{
-            height: 90vh;
-            list-style-type: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-
-            li{
-                a{
-                // font-family: migraBold, sans-serif;
-                font-weight: 600;
-                font-size: 2rem;
-                color: $mainBrandColor;
-                text-decoration: none;
-                text-shadow: 2px 2px 10px #121212;
-                }
-
-                .btn{
-                    background: #FFBD59;
-                    background: radial-gradient(circle farthest-corner at center center, #FFBD59 0%, #51B4BC 100%);
-                    padding: 15px 30px;
-                    color: $white;
-                    box-shadow: 2px 2px 10px #121212;
-                    text-shadow: none;
-                }
-            }
+        &:hover{
+            background-image: linear-gradient(to right, $mainBrandColor,  $secondaryBrandColor  100%);
+            font-size: 1.5rem;
         }
-    }
-}
-
-.desktop-nav{
-    display: none;
-}
+      }
 
 //header
 
 header{
     min-height: 100vh;
-    background-image: url("/public/images/puppy.jpg");
+    background-image: url("/public/images/godess.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -185,7 +128,73 @@ header{
         font-size: 3rem;
         margin: 10px;
     }
+}      
+// nav
+.mobile-nav{
+    button{
+        background-image: none;
+        background-color: transparent;
+        position: absolute;
+        position: fixed;
+        right: -20px;
+        top: -10px;
+        z-index: 3;
+
+    span{
+        display: block;
+        border-radius: 3px;
+        height: 5px;
+        width: 50px;
+        margin-bottom: 10px;
+        opacity: 1;
+        box-shadow: 2px 2px 10px #121212;
+        background-color: #FFBD59;
+        }
+    }
+
+    .mobile-menu{
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        position: fixed;
+        z-index: 2;
+        background: rgba(18, 18, 18, 90%);
+
+        ul{
+            height: 90vh;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            li{
+                a{
+                // font-family: migraBold, sans-serif;
+                font-weight: 600;
+                font-size: 2rem;
+                color: $mainBrandColor;
+                text-decoration: none;
+                text-shadow: 2px 2px 10px #121212;
+                }
+
+                .btn{
+                    background: #FFBD59;
+                    background: radial-gradient(circle farthest-corner at center center, #FFBD59 0%, #51B4BC 100%);
+                    padding: 15px 30px;
+                    color: $white;
+                    box-shadow: 2px 2px 10px #121212;
+                    text-shadow: none;
+                }
+            }
+        }
+    }
 }
+
+.desktop-nav{
+    display: none;
+}
+
 
 // aubot
 
@@ -254,6 +263,88 @@ header{
 
     button{
         margin: 0 auto;
+    }
+}
+
+//events
+
+.event-card{
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 60px;
+    padding: 30px;
+
+    img{
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    button{
+        margin: 0 auto;
+    }
+
+    .event-description{
+        height: 350px;
+        margin-top: 30px;
+
+        h3{
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    
+        h3, img{
+            margin-bottom: 15px;
+            z-index: 1;
+        }
+    
+        span{
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        p{
+            margin-bottom: 15px;
+        }
+    }
+
+    .event-popup{
+        display: none;
+        position: fixed;
+        right: 0;
+        // left: 0;
+        top: 0;
+        // bottom: 0;
+        z-index: 4;
+        height: 100vh;
+        width: 100vw;
+        background: $background;
+        overflow: auto;
+        text-align: center;
+        padding-bottom: 60px;
+
+        .close-btn{
+            font-size: 2rem;
+            color: $mainBrandColor;
+            background: transparent;
+            position: relative;
+            left: 40%;
+            margin-bottom: 0;
+        }
+
+        h2{
+            font-size: 2rem;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        h3{
+            font-size: 1.5rem;
+        }
+
+        img{
+            margin-bottom: 30px;
+        }
     }
 }
 
