@@ -6,8 +6,6 @@ import './style/style.scss';
 // - RUBRIKER -> ska tonasin när de kommer i bild. Kanske en fräck animation i header-texten
 // -UPP-KNAPP -> knapp som åker med ner som går att trycka på för att åka upp
 // -POP-UP -> pop-up ruta som frågar om man vill signa upp på nyhetsbrev
-// -EVENTS -> lägga in dessa som objekt i en array. med en läs mer-knapp som öppnar
-// en pop-up med mer info om event. se till att event inte redan har varit
 // OMDÖMEN -> En slider med omdömen som går att bläddra i son går i en "cirkel"
 // SPRÅK -> knapp för att byta språk?
 // KONTAKT -> lägga in regex, ska synas vilka fält som är obligatoriska.
@@ -31,7 +29,18 @@ const events = [
     startTime: '11:00',
     finishTime: '14:00',
     shortDescription: 'A workshop where we explore our biological intuition.',
-    longDescription: '<p>Welcome to an afternoon of exploratory self-leadership, in the sign of movement and yoga. </p> <p> In our fast-moving world, we make thousands of decisions every day, the brain spins faster than ever and is often involved in most of the decisions you make. But sometimes you get a gnawing feeling in your stomach that might mean something isnt right. Do you recognize yourself?</p><p>The brain, heart and stomach are connected by complex nervous systems and are constantly working together, but often the heart and stomach are silenced and the brain takes command.</p><p>In this workshop you will have the opportunity to dive deeper into the body to explore your other two "brains", the heart and the stomach. With the help of meditation, free movement exploration, yoga and reflection, you get the chance to refine your ability to listen to the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to socialize, or hang out as we say in Gothenburg.</p>',
+    longDescription: '<p>Welcome to an afternoon of exploratory self-leadership, in the sign'
+    + 'of movement and yoga. </p> <p> In our fast-moving world, we make thousands of decisions'
+    + 'every day, the brain spins faster than ever and is often involved in most of the decisions'
+    + 'you make. But sometimes you get a gnawing feeling in your stomach that might mean something'
+    + 'isnt right. Do you recognize yourself?</p><p>The brain, heart and stomach are connected by complex'
+    + 'nervous systems and are constantly working together, but often the heart and stomach are silenced'
+    + 'and the brain takes command.</p><p>In this workshop you will have the opportunity to dive deeper'
+    + 'into the body to explore your other two "brains", the heart and the stomach. With the help of meditation,'
+    + 'free movement exploration, yoga and reflection, you get the chance to refine your ability to listen to'
+    + 'the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will'
+    + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to' 
+    + 'socialize, or hang out as we say in Gothenburg.</p>',
     img: 'explorative.png',
   },
   {
@@ -44,7 +53,18 @@ const events = [
     startTime: '12:00',
     finishTime: '17:00',
     shortDescription: 'A workshop where we explore our fascia',
-    longDescription: '<p>Welcome to an afternoon of exploratory self-leadership, in the sign of movement and yoga. </p> <p> In our fast-moving world, we make thousands of decisions every day, the brain spins faster than ever and is often involved in most of the decisions you make. But sometimes you get a gnawing feeling in your stomach that might mean something isnt right. Do you recognize yourself?</p><p>The brain, heart and stomach are connected by complex nervous systems and are constantly working together, but often the heart and stomach are silenced and the brain takes command.</p><p>In this workshop you will have the opportunity to dive deeper into the body to explore your other two "brains", the heart and the stomach. With the help of meditation, free movement exploration, yoga and reflection, you get the chance to refine your ability to listen to the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to socialize, or hang out as we say in Gothenburg.</p>',
+    longDescription: '<p>Welcome to an afternoon of exploratory self-leadership, in the sign'
+    + 'of movement and yoga. </p> <p> In our fast-moving world, we make thousands of decisions'
+    + 'every day, the brain spins faster than ever and is often involved in most of the decisions'
+    + 'you make. But sometimes you get a gnawing feeling in your stomach that might mean something'
+    + 'isnt right. Do you recognize yourself?</p><p>The brain, heart and stomach are connected by complex'
+    + 'nervous systems and are constantly working together, but often the heart and stomach are silenced'
+    + 'and the brain takes command.</p><p>In this workshop you will have the opportunity to dive deeper'
+    + 'into the body to explore your other two "brains", the heart and the stomach. With the help of meditation,'
+    + 'free movement exploration, yoga and reflection, you get the chance to refine your ability to listen to'
+    + 'the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will'
+    + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to' 
+    + 'socialize, or hang out as we say in Gothenburg.</p>',
     img: 'fascia.png',
   },
   {
@@ -57,30 +77,121 @@ const events = [
     startTime: '19:00',
     finishTime: '20:30',
     shortDescription: 'A workshop where we explore our fascia',
-    longDescription: '<p>Welcome to an afternoon of exploratory self-leadership, in the sign of movement and yoga. </p> <p>In our fast-moving world, we make thousands of decisions every day, the brain spins faster than ever and is often involved in most of the decisions you make. But sometimes you get a gnawing feeling in your stomach that might mean something isnt right. Do you recognize yourself?</p><p>The brain, heart and stomach are connected by complex nervous systems and are constantly working together, but often the heart and stomach are silenced and the brain takes command.</p><p>In this workshop you will have the opportunity to dive deeper into the body to explore your other two "brains", the heart and the stomach. With the help of meditation, free movement exploration, yoga and reflection, you get the chance to refine your ability to listen to the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to socialize, or hang out as we say in Gothenburg.</p>',
+    longDescription: '<p>Welcome to an afternoon of exploratory self-leadership, in the sign'
+    + 'of movement and yoga. </p> <p> In our fast-moving world, we make thousands of decisions'
+    + 'every day, the brain spins faster than ever and is often involved in most of the decisions'
+    + 'you make. But sometimes you get a gnawing feeling in your stomach that might mean something'
+    + 'isnt right. Do you recognize yourself?</p><p>The brain, heart and stomach are connected by complex'
+    + 'nervous systems and are constantly working together, but often the heart and stomach are silenced'
+    + 'and the brain takes command.</p><p>In this workshop you will have the opportunity to dive deeper'
+    + 'into the body to explore your other two "brains", the heart and the stomach. With the help of meditation,'
+    + 'free movement exploration, yoga and reflection, you get the chance to refine your ability to listen to'
+    + 'the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will'
+    + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to' 
+    + 'socialize, or hang out as we say in Gothenburg.</p>',
     img: 'embodied_flow.png',
   },
 ];
 
-// Kod för menyn, fadear in och ut vid scroll
-
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-  if (lastScrollY < window.scrollY) {
-    gsap.to('nav', { duration: 1, autoAlpha: 0 });
-  } else {
-    gsap.to('nav', { duration: 1, autoAlpha: 1 });
-  }
-
-  lastScrollY = window.scrollY;
-});
-
-// Skapa event-cards
-
+const testimonials = [
+  {
+    id: 1,
+    testimonial: 'Vel sequi quis id praesentium nihil At recusandae eligendi'
+    + 'et ipsam ratione. Vel minus harum quo veritatis praesentium quo rerum rerum ut'
+    + 'eligendi dolorem ut arum autem id totam enim non odit repellat.',
+    name: 'Participant from fysiken',
+  },
+  {
+    id: 2,
+    testimonial: 'Vel sequi quis id praesentium nihil At recusandae eligendi'
+    + 'et ipsam ratione. Vel minus harum quo veritatis praesentium quo rerum rerum'
+    + 'ut eligendi dolorem ut arum autem id totam enim non odit repellat.',
+    name: 'Participant from Hagabadet',
+  },
+  {
+    id: 3,
+    testimonial: 'Vel sequi quis id praesentium nihil At recusandae eligendi'
+    + 'et ipsam ratione. Vel minus harum quo veritatis praesentium quo rerum rerum'
+    + 'ut eligendi dolorem ut arum autem id totam enim non odit repellat.',
+    name: 'Massage client',
+  },
+  {
+    id: 4,
+    testimonial: 'Vel sequi quis id praesentium nihil At recusandae eligendi'
+    + 'et ipsam ratione. Vel minus harum quo veritatis praesentium quo rerum rerum'
+    + 'ut eligendi dolorem ut arum autem id totam enim non odit repellat.',
+    name: 'Massage client',
+  },
+];
 const eventsHolder = document.querySelector('#events-holder') as HTMLHtmlElement;
 let eventsHtml = '';
+const testimonialsHolder = document.querySelector('#testimonials-holder') as HTMLHtmlElement;
+let testimonialsHtml = '';
+let testimonialsSlidePosition = 0;
+const testimonialsLength = testimonials.length;
 
+// testimonial carousel
+// skapar html för omdömen
+testimonials.forEach((custTestimonial) => {
+  testimonialsHtml += `
+  <div class="testimonial-card">
+      <p>"${custTestimonial.testimonial}"</p>
+      <p>- ${custTestimonial.name}</p>
+  </div>`;
+});
+
+const testimonialsSlides = document.getElementsByClassName('testimonial-card');
+console.log(testimonialsSlides);
+
+// lägger till knappar längst ner i html-koden
+testimonialsHtml += `
+ <div id="carousel-actions">
+    <button class="prev-btn" id="prev-btn" aria-label="previous testimonial">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="next-btn" id="next-btn"  aria-label="next testimonial">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+ </div>`;
+
+testimonialsHolder.innerHTML = testimonialsHtml;
+
+testimonialsHolder.firstElementChild?.classList.add('item-visible');
+
+// Hämtar knapparna för nästa och föregående
+const prevBtn = document.querySelector('#prev-btn');
+const nextBtn = document.querySelector('#next-btn');
+
+// function för att dölja slides
+function hideAllSlides() {
+  for (let i = 0; i < testimonialsLength; i++) {
+    testimonialsSlides[i].classList.remove('item-visible');
+    testimonialsSlides[i].classList.add('item-hidden');
+  }
+}
+
+// funktioner för att bläddra vid klick
+prevBtn?.addEventListener('click', () => {
+  hideAllSlides();
+  if (testimonialsSlidePosition === 0) {
+    testimonialsSlidePosition = testimonialsLength - 1;
+  } else {
+    testimonialsSlidePosition -= 1;
+  }
+  testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
+});
+
+nextBtn?.addEventListener('click', () => {
+  hideAllSlides();
+  if (testimonialsSlidePosition === testimonialsLength - 1) {
+    testimonialsSlidePosition = 0;
+  } else {
+    testimonialsSlidePosition += 1;
+  }
+  testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
+});
+
+// Skapa events
 // kolla på constructors, kanske går att använda här?
 
 events.forEach((event) => {
@@ -96,7 +207,7 @@ events.forEach((event) => {
        <button id="${event.id}">Read more</button>
        <div class="event-popup" id="event-popup">
           <div class="event-long-description">
-            <button class="close-btn" id="${event.id}">X</button>
+            <button class="close-btn" id="${event.id}" onclick="window.location.href='#events';">X</button>
             <h2>${event.name}</h2>
             <img src='./public/images/${event.img}'>
             <h3>${event.date}-${event.month}-${event.year}, ${event.startTime}-${event.finishTime}  ||  
@@ -113,11 +224,27 @@ eventsHolder.innerHTML = eventsHtml;
 // visar en lång beskrivning av eventet vid klick på knappen och stänger när man trycker på "X"
 eventsHolder.addEventListener('click', (e) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  const currentEventPopup = document.getElementById(e.target.id).parentElement.lastElementChild as HTMLElement;
+  const currentEventPopup = document.getElementById(e?.target?.id)?.parentElement?.lastElementChild as HTMLElement;
 
   if (currentEventPopup.style.display === 'block') {
-    currentEventPopup.style.display = 'none';
+    setTimeout(() => { currentEventPopup.style.display = 'none'; }, 500);
+    gsap.to('.event-popup', { duration: 0.4, autoAlpha: 0 });
   } else {
     currentEventPopup.style.display = 'block';
+    gsap.to('.event-popup', { duration: 0.4, autoAlpha: 1 });
   }
+});
+
+// Kod för menyn, fadear in och ut vid scroll
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  if (lastScrollY < window.scrollY) {
+    gsap.to('nav', { duration: 1, autoAlpha: 0 });
+  } else {
+    gsap.to('nav', { duration: 1, autoAlpha: 1 });
+  }
+
+  lastScrollY = window.scrollY;
 });
