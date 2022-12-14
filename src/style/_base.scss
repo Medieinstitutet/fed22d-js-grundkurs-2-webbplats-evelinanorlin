@@ -100,7 +100,7 @@ header{
     .header-container{
         width: 90%;
         position: absolute;
-        z-index: 2;
+        z-index: 1;
         top: 50%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
@@ -138,6 +138,8 @@ header{
 // nav
 
 .mobile-nav{
+    position: relative;
+
     button{
         background-image: none;
         background-color: transparent;
@@ -161,6 +163,7 @@ header{
 
     .mobile-menu{
         display: none;
+        left: 800px;
         height: 100vh;
         width: 100vw;
         position: absolute;

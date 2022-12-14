@@ -3,15 +3,17 @@
 import './style/style.scss';
 // TODO
 
-// - RUBRIKER -> ska tonasin när de kommer i bild. Kanske en fräck animation i header-texten
-// -UPP-KNAPP -> knapp som åker med ner som går att trycka på för att åka upp
-// -POP-UP -> pop-up ruta som frågar om man vill signa upp på nyhetsbrev
-// OMDÖMEN -> En slider med omdömen som går att bläddra i son går i en "cirkel"
-// SPRÅK -> knapp för att byta språk?
-// KONTAKT -> lägga in regex, ska synas vilka fält som är obligatoriska.
-// Går det att göra formuläret fungerande?
+// För godkänt:
+// Visuellt visa vilken menyknapp som är aktiv
+// validering av kontaktformulär
+// knapp i sidan som skickar en till toppen
 
-// funktion för skroll-effekt på menyn
+// För att det är kul:
+// - RUBRIKER -> ska tonasin när de kommer i bild. Kanske en fräck animation i header-texten
+// -POP-UP -> pop-up ruta som frågar om man vill signa upp på nyhetsbrev
+// SPRÅK -> knapp för att byta språk?
+// Animation i slidern
+// animation i hamburgaren
 
 // import { events } from './src/events.js';
 
@@ -39,7 +41,7 @@ const events = [
     + 'into the body to explore your other two "brains", the heart and the stomach. With the help of meditation,'
     + 'free movement exploration, yoga and reflection, you get the chance to refine your ability to listen to'
     + 'the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will'
-    + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to' 
+    + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to'
     + 'socialize, or hang out as we say in Gothenburg.</p>',
     img: 'explorative.png',
   },
@@ -63,7 +65,7 @@ const events = [
     + 'into the body to explore your other two "brains", the heart and the stomach. With the help of meditation,'
     + 'free movement exploration, yoga and reflection, you get the chance to refine your ability to listen to'
     + 'the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will'
-    + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to' 
+    + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to'
     + 'socialize, or hang out as we say in Gothenburg.</p>',
     img: 'fascia.png',
   },
@@ -87,7 +89,7 @@ const events = [
     + 'into the body to explore your other two "brains", the heart and the stomach. With the help of meditation,'
     + 'free movement exploration, yoga and reflection, you get the chance to refine your ability to listen to'
     + 'the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will'
-    + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to' 
+    + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to'
     + 'socialize, or hang out as we say in Gothenburg.</p>',
     img: 'embodied_flow.png',
   },
@@ -131,6 +133,10 @@ let testimonialsSlidePosition = 0;
 const testimonialsLength = testimonials.length;
 const servicesLink = document.querySelector('#services-btn');
 const dropdown = document.querySelector('#drop-down') as HTMLHtmlElement;
+const burgerBtn = document.querySelector('#burger') as HTMLHtmlElement;
+const mobileMenu = document.querySelector('#mobile-menu') as HTMLHtmlElement;
+
+console.log(mobileMenu);
 
 // meny, hover och aktiv länk
 function showDropdown() {
@@ -142,7 +148,22 @@ function hideDropdown() {
 }
 
 servicesLink?.addEventListener('mouseover', showDropdown);
-dropdown.addEventListener('mouseout', hideDropdown);
+dropdown.addEventListener('mouseleave', hideDropdown);
+
+// mobilmenu öppna/stäng
+
+function hideMenu() {
+  mobileMenu.style.display = 'none';
+}
+
+burgerBtn.addEventListener('click', () => {
+  if (mobileMenu.style.display === 'block') {
+    gsap.to('.mobile-menu', { duration: 0.5, left: '1000px', onComplete: hideMenu });
+  } else {
+    mobileMenu.style.display = 'block';
+    gsap.to('.mobile-menu', { duration: 0.5, left: '0' });
+  }
+});
 
 // testimonial carousel
 // skapar html för omdömen
@@ -155,7 +176,6 @@ testimonials.forEach((custTestimonial) => {
 });
 
 const testimonialsSlides = document.getElementsByClassName('testimonial-card');
-console.log(testimonialsSlides);
 
 // lägger till knappar längst ner i html-koden
 testimonialsHtml += `
@@ -254,11 +274,12 @@ eventsHolder.addEventListener('click', (e) => {
 let lastScrollY = window.scrollY;
 
 window.addEventListener('scroll', () => {
-  if (lastScrollY < window.scrollY) {
-    gsap.to('nav', { duration: 1, autoAlpha: 0 });
-  } else {
-    gsap.to('nav', { duration: 1, autoAlpha: 1 });
+  if (mobileMenu.style.display !== 'block') {
+    if (lastScrollY < window.scrollY) {
+      gsap.to('nav', { duration: 0.3, autoAlpha: 0 });
+    } else {
+      gsap.to('nav', { duration: 0.3, autoAlpha: 1 });
+    }
   }
-
   lastScrollY = window.scrollY;
 });
