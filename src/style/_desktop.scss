@@ -44,17 +44,22 @@
     .drop-down{
         display: flex;
         justify-content: right;
-        margin-right: 270px;
+        margin-right: 250px;
         margin-top: 0;
         padding: 0;
-        
+    
+
         ul{
             list-style-type: none;
             background: $background;
+            height: 200px;
+            padding: 30px;
+            margin-top: 0;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
 
             li{
-                margin-bottom: 60px;
-
                 a{
                     color: $mainBrandColor;
                     text-decoration: none;

@@ -129,6 +129,20 @@ const testimonialsHolder = document.querySelector('#testimonials-holder') as HTM
 let testimonialsHtml = '';
 let testimonialsSlidePosition = 0;
 const testimonialsLength = testimonials.length;
+const servicesLink = document.querySelector('#services-btn');
+const dropdown = document.querySelector('#drop-down') as HTMLHtmlElement;
+
+// meny, hover och aktiv länk
+function showDropdown() {
+  dropdown.style.display = 'flex';
+}
+
+function hideDropdown() {
+  dropdown.style.display = 'none';
+}
+
+servicesLink?.addEventListener('mouseover', showDropdown);
+dropdown.addEventListener('mouseout', hideDropdown);
 
 // testimonial carousel
 // skapar html för omdömen
