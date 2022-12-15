@@ -62,7 +62,7 @@
     <header>
       <div class="header-container" id="header">
         <h3>Evelina Norlin</h3>
-        <h1>Yoga and Somatic movement</h1>
+        <h1>Yoga & Somatic movement</h1>
         <button>Practice with me</button>
         <div>
           <i class="fa-brands fa-square-instagram"></i>
@@ -154,17 +154,20 @@
     </section>
     <section class="contact" id="contact">
       <h2>Contact</h2>
-      <form>
-        <label for="name">Name</label><br>
-        <input type="text" id="name" name="name"><br>
+      <!-- <form class="form-anticlear"> -->
+      <form onsubmit="return false">
+        <label for="first-name">First Name</label><br>
+        <input type="text" id="firstName" name="firstName"><br>
+        <label for="last-name">Last Name</label><br>
+        <input type="text" id="lastName" name="lastName"><br>
         <label for="name">Email</label><br>
         <input type="email" id="email" name="email"><br>
         <label for="subject">Subject</label><br>
         <input type="text" id="subject" name="subject"><br>
         <label for="message">Message</label><br>
         <textarea id="message" class="message" name="message" rows="4" cols="50"></textarea><br>
-        <button>Send</button>
       </form>
+      <button id="form-btn" onclick="window.location.href='#contact';">Send</button>
     </section>
     <footer>
       <p>copyright, contact etc</p>
@@ -177,6 +180,7 @@
     - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
     - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
     -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
   <script type="module" src="/src/main.ts"></script>
 </body>
