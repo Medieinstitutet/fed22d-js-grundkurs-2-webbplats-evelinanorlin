@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable no-bitwise */
+/* eslint-disable no-param-reassign */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import './style/style.scss';
@@ -136,6 +140,7 @@ const burgerBtn = document.querySelector('#burger') as HTMLHtmlElement;
 const mobileMenu = document.querySelector('#mobile-menu') as HTMLHtmlElement;
 const deskNavItems = document.querySelector('#desktop-nav-items');
 const deskNavLinks = deskNavItems?.getElementsByClassName('desk-nav-btn') as HTMLCollection;
+const formBtn = document.querySelector('#form-btn');
 
 // meny, hover och aktiv länk
 function showDropdown() {
@@ -282,6 +287,116 @@ eventsHolder.addEventListener('click', (e) => {
     gsap.to('.event-popup', { duration: 0.4, autoAlpha: 1 });
   }
 });
+
+// Formulär
+
+const contactFields: {
+  firstName: any;
+  lastName: any;
+  email: any;
+  subject: any;
+  message: any;
+} = {};
+// let contactFields: {
+//   name: HTMLElement;
+//   email: HTMLElement;
+//   subject: HTMLElement;
+//   message: HTMLElement;
+// };
+
+function loadField() {
+  contactFields.firstName = document.querySelector('#firstName');
+  contactFields.lastName = document.querySelector('#lastName');
+  contactFields.email = document.querySelector('#email');
+  contactFields.subject = document.querySelector('#subject');
+  contactFields.message = document.querySelector('#message');
+}
+
+// kollar att värdet inte är inget eller blanksteg
+function isNotEmpty(value: string) {
+  if (value === null || typeof value === 'undefined') {
+    return false;
+  }
+  return (value.length > 0);
+}
+
+// validerar email
+function isEmail(email: string) {
+  // eslint-disable-next-line max-len
+  const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  return regex.test(String(email).toLowerCase());
+}
+
+// kollar att fältet är validerat. Annars läggs det till en klass som gör det rött
+function fieldValidation(field: HTMLInputElement, validationFunction) {
+  const isFieldValid = validationFunction(field.value);
+  if (!isFieldValid) {
+    field.className = 'not-valid-field';
+  } else {
+    field.className = '';
+  }
+  return isFieldValid as boolean;
+}
+
+// kör validerings-check på alla fälten
+function isValid() {
+  const firstNameVal = fieldValidation(contactFields.firstName, isNotEmpty);
+  const lastNameVal = fieldValidation(contactFields.lastName, isNotEmpty);
+  const emailVal = fieldValidation(contactFields.email, isEmail);
+  const subjectVal = fieldValidation(contactFields.subject, isNotEmpty);
+  const messageVal = fieldValidation(contactFields.message, isNotEmpty);
+
+  if (firstNameVal && lastNameVal && emailVal && subjectVal && messageVal) {
+    return true;
+  }
+  return false;
+
+  //  let valid = true;
+  //  valid &= fieldValidation(contactFields.firstName, isNotEmpty);
+  //  valid &= fieldValidation(contactFields.lastName, isNotEmpty);
+  //  valid &= fieldValidation(contactFields.email, isEmail);
+  //  valid &= fieldValidation(contactFields.subject, isNotEmpty);
+  //  valid &= fieldValidation(contactFields.message, isNotEmpty);
+  //  return valid;
+}
+
+class User {
+  constructor(firstName, lastName, email, message) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.message = message;
+  }
+}
+
+function sendContact() {
+  if (isValid()) {
+    let usr = new User(firstName.value, lastName.value, email.value, message.value);
+    alert('Thank for your message');
+    console.log(usr);
+  } else {
+    alert('Error');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadField);
+
+formBtn?.addEventListener('click', sendContact);
+
+
+
+// validera formulär
+// function validate() {
+//   const formName = (<HTMLInputElement>document.querySelector('#name')).value;
+//   const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+//   if (!regName.test(formName)) {
+//     alert('Invalid name given.');
+//   } else {
+//     alert('Valid name given.');
+//   }
+// }
+
+// formBtn?.addEventListener('click', validate);
 
 // Kod för menyn, fadear in och ut vid scroll
 
