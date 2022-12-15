@@ -4,7 +4,6 @@ import './style/style.scss';
 // TODO
 
 // För godkänt:
-// Visuellt visa vilken menyknapp som är aktiv
 // validering av kontaktformulär
 // knapp i sidan som skickar en till toppen
 
@@ -135,8 +134,8 @@ const servicesLink = document.querySelector('#services-btn');
 const dropdown = document.querySelector('#drop-down') as HTMLHtmlElement;
 const burgerBtn = document.querySelector('#burger') as HTMLHtmlElement;
 const mobileMenu = document.querySelector('#mobile-menu') as HTMLHtmlElement;
-
-console.log(mobileMenu);
+const deskNavItems = document.querySelector('#desktop-nav-items');
+const deskNavLinks = deskNavItems?.getElementsByClassName('desk-nav-btn') as HTMLCollection;
 
 // meny, hover och aktiv länk
 function showDropdown() {
@@ -147,8 +146,23 @@ function hideDropdown() {
   dropdown.style.display = 'none';
 }
 
-servicesLink?.addEventListener('mouseover', showDropdown);
+servicesLink?.addEventListener('click', showDropdown);
 dropdown.addEventListener('mouseleave', hideDropdown);
+
+// Visa aktiv menyknapp
+
+function addActive(this: HTMLElement) {
+  const current = document.getElementsByClassName('active');
+  console.log(current);
+  if (current.length > 0) {
+    current[0].className = current[0].className.replace('active', '');
+  }
+  this.className += ' active';
+}
+
+for (let i = 0; i < deskNavLinks.length; i++) {
+  deskNavLinks[i].addEventListener('click', addActive);
+}
 
 // mobilmenu öppna/stäng
 

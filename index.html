@@ -25,39 +25,42 @@
         <div class="mobile-menu" id="mobile-menu" style="display: none;">
           <div class="background"></div>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#" class="btn">Contact</a></li>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact" class="btn">Contact</a></li>
           </ul>
         </div>
       </div>
       <div class="desktop-nav">
-        <div class="desktop-nav-flex">
+        <div class="desktop-nav-flex" id="desktop-nav-items">
           <ul>
-            <li><a href="#"><i class="fa-brands fa-square-instagram"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+            <li><a href="#" class="desk-nav-btn"><i class="fa-brands fa-square-instagram"></i></a></li>
+            <li><a href="#" class="desk-nav-btn"><i class="fa-brands fa-square-facebook"></i></a></li>
           </ul>
           <ul>
-            <li><a href="#">home</a></li>
-            <li><a href="#">about</a></li>
-            <li><a href="#" id="services-btn">services <i class="fa-solid fa-chevron-down"></i></a></li>
-            <li><a href="#">events</a></li>
-            <li><button>contact</button></li>
+            <li><a href="#home" class="desk-nav-btn active">home</a></li>
+            <li><a href="#about" class="desk-nav-btn">about</a></li>
+            <li>
+              <a id="services-btn" class="services-btn desk-nav-btn">services <i
+                  class="fa-solid fa-chevron-down"></i></a>
+            </li>
+            <li><a href="#events" class="desk-nav-btn">events</a></li>
+            <li><button onclick="window.location.href='#contact';">contact</button></li>
           </ul>
         </div>
         <div class="drop-down">
           <ul id="drop-down">
-            <li><a href="#">Open classes</a></li>
-            <li><a href="#">Private classes</a></li>
-            <li><a href="#">Thai Yoga massage</a></li>
+            <li><a href="#open-classes">Open classes</a></li>
+            <li><a href="#private-classes">Private classes</a></li>
+            <li><a href="#massage">Thai Yoga massage</a></li>
           </ul>
         </div>
       </div>
     </nav>
     <header>
-      <div class="header-container">
+      <div class="header-container" id="header">
         <h3>Evelina Norlin</h3>
         <h1>Yoga and Somatic movement</h1>
         <button>Practice with me</button>
@@ -67,7 +70,7 @@
         </div>
       </div>
     </header>
-    <section class="about">
+    <section class="about" id="about">
       <div class="about-flex">
         <div class="about-me">
           <h2>About</h2>
@@ -111,14 +114,14 @@
       <div class=" background-image-2">
       </div>
     </section>
-    <section class="services">
+    <section class="services" id="services">
 
       <h2>Services</h2>
-      <h3>Open classes</h3>
+      <h3 id="open-classes">Open classes</h3>
       <p>here goes my wekly schedule</p>
       <div class="services-flex-1">
         <div>
-          <h3>Private classes</h3>
+          <h3 id="private-classes">Private classes</h3>
           <p>Vel sequi quis id praesentium nihil At recusandae
             eligendi et ipsam ratione. Vel minus harum quo veritatis
             praesentium quo rerum rerum ut eligendi dolorem ut arum
@@ -130,7 +133,7 @@
       </div>
       <div class="services-flex-2">
         <div>
-          <h3>Thai Yoga massage</h3>
+          <h3 id="massage">Thai Yoga massage</h3>
           <p>Vel sequi quis id praesentium nihil At recusandae
             eligendi et ipsam ratione. Vel minus harum quo veritatis
             praesentium quo rerum rerum ut eligendi dolorem ut arum
