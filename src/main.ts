@@ -7,16 +7,17 @@
 import './style/style.scss';
 // TODO
 
-// För godkänt:
-// validering av kontaktformulär
-// knapp i sidan som skickar en till toppen
-
-// För att det är kul:
 // - RUBRIKER -> ska tonasin när de kommer i bild. Kanske en fräck animation i header-texten
 // -POP-UP -> pop-up ruta som frågar om man vill signa upp på nyhetsbrev
 // SPRÅK -> knapp för att byta språk?
 // Animation i slidern
 // animation i hamburgaren
+// meny. Highligta den länken där en befinner sig just nu, alltså ändra medan scroll
+// schema för öppna klasser.
+// svartvita bilder
+
+// saker som är fel:
+// tillgänglighet på "services knappen", går ej att fokusera
 
 // import { events } from './src/events.js';
 
@@ -141,7 +142,8 @@ const mobileMenu = document.querySelector('#mobile-menu') as HTMLHtmlElement;
 const deskNavItems = document.querySelector('#desktop-nav-items');
 const deskNavLinks = deskNavItems?.getElementsByClassName('desk-nav-btn') as HTMLCollection;
 const formBtn = document.querySelector('#form-btn');
-
+const messageSent = document.querySelector('#message-sent') as HTMLHtmlElement;
+console.log(messageSent);
 // meny, hover och aktiv länk
 function showDropdown() {
   dropdown.style.display = 'flex';
@@ -245,7 +247,6 @@ nextBtn?.addEventListener('click', () => {
 });
 
 // Skapa events
-// kolla på constructors, kanske går att använda här?
 
 events.forEach((event) => {
   eventsHtml += `
@@ -289,28 +290,11 @@ eventsHolder.addEventListener('click', (e) => {
 });
 
 // Formulär
-
-const contactFields: {
-  firstName: any;
-  lastName: any;
-  email: any;
-  subject: any;
-  message: any;
-} = {};
-// let contactFields: {
-//   name: HTMLElement;
-//   email: HTMLElement;
-//   subject: HTMLElement;
-//   message: HTMLElement;
-// };
-
-function loadField() {
-  contactFields.firstName = document.querySelector('#firstName');
-  contactFields.lastName = document.querySelector('#lastName');
-  contactFields.email = document.querySelector('#email');
-  contactFields.subject = document.querySelector('#subject');
-  contactFields.message = document.querySelector('#message');
-}
+const firstNameInput = document.querySelector('#firstName') as HTMLInputElement;
+const lastNameInput = document.querySelector('#lastName') as HTMLInputElement;
+const emailInput = document.querySelector('#email') as HTMLInputElement;
+const subjectInput = document.querySelector('#subject') as HTMLInputElement;
+const messageInput = document.querySelector('#message') as HTMLInputElement;
 
 // kollar att värdet inte är inget eller blanksteg
 function isNotEmpty(value: string) {
@@ -328,62 +312,62 @@ function isEmail(email: string) {
 }
 
 // kollar att fältet är validerat. Annars läggs det till en klass som gör det rött
-function fieldValidation(field: HTMLInputElement, validationFunction) {
+function fieldValidation(field: HTMLInputElement, validationFunction: (value: string) => boolean) {
   const isFieldValid = validationFunction(field.value);
   if (!isFieldValid) {
     field.className = 'not-valid-field';
   } else {
     field.className = '';
   }
-  return isFieldValid as boolean;
+  return isFieldValid;
 }
 
 // kör validerings-check på alla fälten
 function isValid() {
-  const firstNameVal = fieldValidation(contactFields.firstName, isNotEmpty);
-  const lastNameVal = fieldValidation(contactFields.lastName, isNotEmpty);
-  const emailVal = fieldValidation(contactFields.email, isEmail);
-  const subjectVal = fieldValidation(contactFields.subject, isNotEmpty);
-  const messageVal = fieldValidation(contactFields.message, isNotEmpty);
+  const firstNameVal = fieldValidation(firstNameInput, isNotEmpty);
+  const lastNameVal = fieldValidation(lastNameInput, isNotEmpty);
+  const emailVal = fieldValidation(emailInput, isEmail);
+  const subjectVal = fieldValidation(subjectInput, isNotEmpty);
+  const messageVal = fieldValidation(messageInput, isNotEmpty);
 
   if (firstNameVal && lastNameVal && emailVal && subjectVal && messageVal) {
     return true;
   }
   return false;
-
-  //  let valid = true;
-  //  valid &= fieldValidation(contactFields.firstName, isNotEmpty);
-  //  valid &= fieldValidation(contactFields.lastName, isNotEmpty);
-  //  valid &= fieldValidation(contactFields.email, isEmail);
-  //  valid &= fieldValidation(contactFields.subject, isNotEmpty);
-  //  valid &= fieldValidation(contactFields.message, isNotEmpty);
-  //  return valid;
 }
 
+// Kanske eventuellt kan lagra uppgifter såhär om det senare ska skickas iväg i riktigt mejl?
 class User {
-  constructor(firstName, lastName, email, message) {
+  firstName: string;
+
+  lastName: string;
+
+  email: string;
+
+  subject: string;
+
+  message: string;
+
+  constructor(firstName: string, lastName: string, email: string, subject: string, message: string) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
+    this.subject = subject;
     this.message = message;
   }
 }
-
+console.log(User)
 function sendContact() {
   if (isValid()) {
-    let usr = new User(firstName.value, lastName.value, email.value, message.value);
-    alert('Thank for your message');
+    const usr = new User(firstName.value, lastName.value, email.value, subject.value, message.value);
+    messageSent.classList.add('show-message');
     console.log(usr);
-  } else {
-    alert('Error');
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadField);
+// document.addEventListener('DOMContentLoaded', loadField);
 
 formBtn?.addEventListener('click', sendContact);
-
-
 
 // validera formulär
 // function validate() {

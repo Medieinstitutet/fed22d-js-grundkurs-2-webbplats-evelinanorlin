@@ -14,10 +14,10 @@
 </head>
 
 <body>
-  <main>
+  <main id="main">
     <nav id="navigation" class="navigation">
       <div class="mobile-nav">
-        <button id="burger">
+        <button id="burger" aria-label="open menu">
           <span></span>
           <span></span>
           <span></span>
@@ -59,6 +59,7 @@
         </div>
       </div>
     </nav>
+    <div id="up-btn" class="up-btn"><a href="#main"><i class="fa-solid fa-arrow-up"></i></a></div>
     <header>
       <div class="header-container" id="header">
         <h3>Evelina Norlin</h3>
@@ -168,6 +169,9 @@
         <textarea id="message" class="message" name="message" rows="4" cols="50"></textarea><br>
       </form>
       <button id="form-btn" onclick="window.location.href='#contact';">Send</button>
+      <div class="message-sent" id="message-sent">
+        <h3>Thank you for reaching out!</h3>
+      </div>
     </section>
     <footer>
       <p>copyright, contact etc</p>
