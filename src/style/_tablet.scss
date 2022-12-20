@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 
 @media screen and (min-width: 750px) {
 
@@ -46,6 +47,7 @@
 
    //header
    header{
+    margin: 0 auto;
     h1{
         font-size: 5rem;
     }
@@ -79,6 +81,23 @@
 }
 
 .services{
+    .open-classes{
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        
+        h4{
+            font-size: 1.5rem;
+        }
+    
+        ul{
+            li{
+                font-size: 1.2rem;
+            }
+        }
+    }
+
     .background-image-3, 
     .background-image-4,{
          height: 500px;
@@ -89,7 +108,9 @@
     button{
         margin-top: 60px;
     }
- }
+
+    }
+
 
  .contact{
     label{

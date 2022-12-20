@@ -15,6 +15,7 @@ import './style/style.scss';
 // meny. Highligta den länken där en befinner sig just nu, alltså ändra medan scroll
 // schema för öppna klasser.
 // svartvita bilder
+// stänga mobil.meny när man tryckt på länk
 
 // saker som är fel:
 // tillgänglighet på "services knappen", går ej att fokusera
@@ -129,6 +130,7 @@ const testimonials = [
     name: 'Massage client',
   },
 ];
+
 const eventsHolder = document.querySelector('#events-holder') as HTMLHtmlElement;
 let eventsHtml = '';
 const testimonialsHolder = document.querySelector('#testimonials-holder') as HTMLHtmlElement;
@@ -143,8 +145,11 @@ const deskNavItems = document.querySelector('#desktop-nav-items');
 const deskNavLinks = deskNavItems?.getElementsByClassName('desk-nav-btn') as HTMLCollection;
 const formBtn = document.querySelector('#form-btn');
 const messageSent = document.querySelector('#message-sent') as HTMLHtmlElement;
-console.log(messageSent);
-// meny, hover och aktiv länk
+
+// Nav
+
+// kod för dropdown i desktop-menyn, dyker upp när man klickar på Services och försvinner när
+// man för musen utanför
 function showDropdown() {
   dropdown.style.display = 'flex';
 }
@@ -156,7 +161,7 @@ function hideDropdown() {
 servicesLink?.addEventListener('click', showDropdown);
 dropdown.addEventListener('mouseleave', hideDropdown);
 
-// Visa aktiv menyknapp
+// Kod för att visuellt visa vilken länk i menyn som är aktiv.
 
 function addActive(this: HTMLElement) {
   const current = document.getElementsByClassName('active');
@@ -171,7 +176,7 @@ for (let i = 0; i < deskNavLinks.length; i++) {
   deskNavLinks[i].addEventListener('click', addActive);
 }
 
-// mobilmenu öppna/stäng
+// Kod för att öppna och stänga mobilmeny, med animation
 
 function hideMenu() {
   mobileMenu.style.display = 'none';
@@ -186,7 +191,7 @@ burgerBtn.addEventListener('click', () => {
   }
 });
 
-// testimonial carousel
+// Nedan skapas en karusell för att bläddra i omdömen
 // skapar html för omdömen
 testimonials.forEach((custTestimonial) => {
   testimonialsHtml += `
@@ -225,8 +230,9 @@ function hideAllSlides() {
   }
 }
 
-// funktioner för att bläddra vid klick
-prevBtn?.addEventListener('click', () => {
+// funktioner för att bläddra i karusellen vid klick
+
+function nextSlide() {
   hideAllSlides();
   if (testimonialsSlidePosition === 0) {
     testimonialsSlidePosition = testimonialsLength - 1;
@@ -234,9 +240,9 @@ prevBtn?.addEventListener('click', () => {
     testimonialsSlidePosition -= 1;
   }
   testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
-});
+}
 
-nextBtn?.addEventListener('click', () => {
+function prevSlide() {
   hideAllSlides();
   if (testimonialsSlidePosition === testimonialsLength - 1) {
     testimonialsSlidePosition = 0;
@@ -244,14 +250,17 @@ nextBtn?.addEventListener('click', () => {
     testimonialsSlidePosition += 1;
   }
   testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
-});
+}
 
-// Skapa events
+nextBtn?.addEventListener('click', prevSlide);
+prevBtn?.addEventListener('click', nextSlide);
+
+// Kod för att visa events på hemidan
 
 events.forEach((event) => {
   eventsHtml += `
      <div class="event-card">    
-       <img src='./public/images/${event.img}'>
+       <img src=' /public/images/${event.img}'>
        <div class="event-description">
           <h3>${event.name}</h3>
           <p><span>When?</span><br> ${event.date}-${event.month}-${event.year}</p>
@@ -276,7 +285,8 @@ events.forEach((event) => {
 eventsHolder.innerHTML = eventsHtml;
 
 // visar en lång beskrivning av eventet vid klick på knappen och stänger när man trycker på "X"
-eventsHolder.addEventListener('click', (e) => {
+
+function openEvent(e: MouseEvent) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   const currentEventPopup = document.getElementById(e?.target?.id)?.parentElement?.lastElementChild as HTMLElement;
 
@@ -287,7 +297,9 @@ eventsHolder.addEventListener('click', (e) => {
     currentEventPopup.style.display = 'block';
     gsap.to('.event-popup', { duration: 0.4, autoAlpha: 1 });
   }
-});
+}
+
+eventsHolder.addEventListener('click', openEvent);
 
 // Formulär
 const firstNameInput = document.querySelector('#firstName') as HTMLInputElement;
@@ -356,7 +368,7 @@ class User {
     this.message = message;
   }
 }
-console.log(User)
+
 function sendContact() {
   if (isValid()) {
     const usr = new User(firstName.value, lastName.value, email.value, subject.value, message.value);
@@ -368,19 +380,6 @@ function sendContact() {
 // document.addEventListener('DOMContentLoaded', loadField);
 
 formBtn?.addEventListener('click', sendContact);
-
-// validera formulär
-// function validate() {
-//   const formName = (<HTMLInputElement>document.querySelector('#name')).value;
-//   const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
-//   if (!regName.test(formName)) {
-//     alert('Invalid name given.');
-//   } else {
-//     alert('Valid name given.');
-//   }
-// }
-
-// formBtn?.addEventListener('click', validate);
 
 // Kod för menyn, fadear in och ut vid scroll
 
@@ -396,3 +395,80 @@ window.addEventListener('scroll', () => {
   }
   lastScrollY = window.scrollY;
 });
+
+// // kod för kalender med öppna klasser, denna kalender är interaktiv, användare
+// // lägger in events. Men tänker att den på en "riktig" hemsida kanske
+// // bara kan redigeras av administratör?
+
+// let nav = 0; // Håller koll på vilken månad det är
+// let clicked = null; // dagen man klickar på
+// // Hämtar data från local storage, byt ut detta till hårdkodat när klar
+// let openClasses = localStorage.getItem('openClasses') ? JSON.parse(localStorage.getItem('openClasses')) : [];
+// const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+// const calendar = document.querySelector('#calendar') as HTMLElement;;
+// const monthContainer = document.querySelector('#month') as HTMLElement;
+// const calendarNextBtn = document.querySelector('#calendar-next-btn');
+// const calendarPrevBtn = document.querySelector('#calendar-prev-btn');
+
+// // laddar in kalendern när man går in på sidan, beror ju på dagens datum
+// function loadCalendar() {
+//   const date = new Date();
+//   if (nav !== 0) {
+//     date.setMonth(new Date().getMonth() + nav);
+//   }
+
+//   const day = date.toLocaleDateString('en-gb', { weekday: 'long' }).toLowerCase(); /* veckodag som string */
+//   const month = date.getMonth();
+//   const year = date.getFullYear();
+
+//   const firstDayOfMonth = new Date(year, month, 1);
+//   const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+//   const dateString = firstDayOfMonth.toLocaleDateString('en-gb', {
+//     weekday: 'long',
+//     year: 'numeric',
+//     month: 'numeric',
+//     day: 'numeric',
+//   }); /* Skapar första dagen i månaden, i rätt format (en-gb) och skriver ut dagen
+// (ex torsdag istället för 4) */
+
+//   const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);/* för att skapa "tomma" dagar i början av månaden */
+
+//   /* Visar aktuell månad över kalendern */
+//   monthContainer.innerHTML = `${date.toLocaleDateString('en-gb', { month: 'long' })} ${year}`;
+
+//   function clickedDay() {
+//     console.log('clicked');
+//   }
+
+//   calendar.innerHTML = ''; /* tar bort kalenderdagar (div:ar) innan for-loopen skapar nya */
+
+//   for (let i = 1; i <= paddingDays + daysInMonth; i++) {
+//     const daySquare = document.createElement('div');
+//     daySquare.classList.add('day');
+
+//     if (i > paddingDays) { /* För dagar som existerar i månaden */
+//       daySquare.innerText = `${i - paddingDays}`;
+//     } else { /* För dagar i början på kalendern, ej i månaden */
+//       daySquare.classList.add('padding');
+//     }
+
+//     calendar?.appendChild(daySquare);
+//   }
+// }
+
+// function nextMonth() {
+//   nav += 1;
+//   loadCalendar();
+// }
+
+// function prevMonth() {
+//   nav -= 1;
+//   console.log(nav);
+//   loadCalendar();
+// }
+
+// calendarNextBtn?.addEventListener('click', nextMonth);
+// calendarPrevBtn?.addEventListener('click', prevMonth);
+
+// loadCalendar();
