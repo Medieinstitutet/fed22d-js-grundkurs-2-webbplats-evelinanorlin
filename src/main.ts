@@ -8,14 +8,11 @@ import './style/style.scss';
 // TODO
 
 // - RUBRIKER -> ska tonasin när de kommer i bild. Kanske en fräck animation i header-texten
-// -POP-UP -> pop-up ruta som frågar om man vill signa upp på nyhetsbrev
 // SPRÅK -> knapp för att byta språk?
-// Animation i slidern
+// Animation i slidern.. OBS funkar ej på första klicket, fråga!
 // animation i hamburgaren
 // meny. Highligta den länken där en befinner sig just nu, alltså ändra medan scroll
-// schema för öppna klasser.
 // svartvita bilder
-// stänga mobil.meny när man tryckt på länk
 
 // saker som är fel:
 // tillgänglighet på "services knappen", går ej att fokusera
@@ -145,6 +142,8 @@ const deskNavItems = document.querySelector('#desktop-nav-items');
 const deskNavLinks = deskNavItems?.getElementsByClassName('desk-nav-btn') as HTMLCollection;
 const formBtn = document.querySelector('#form-btn');
 const messageSent = document.querySelector('#message-sent') as HTMLHtmlElement;
+const mobNavLink = document.querySelectorAll('.mob-nav-link');
+console.log(mobNavLink)
 
 // Nav
 
@@ -182,14 +181,21 @@ function hideMenu() {
   mobileMenu.style.display = 'none';
 }
 
-burgerBtn.addEventListener('click', () => {
+function menuToggle() {
   if (mobileMenu.style.display === 'block') {
     gsap.to('.mobile-menu', { duration: 0.5, left: '1000px', onComplete: hideMenu });
   } else {
     mobileMenu.style.display = 'block';
     gsap.to('.mobile-menu', { duration: 0.5, left: '0' });
   }
-});
+}
+
+function linkFunction(link: Node) {
+  link.addEventListener('click', menuToggle);
+}
+
+burgerBtn.addEventListener('click', menuToggle);
+mobNavLink.forEach(linkFunction);
 
 // Nedan skapas en karusell för att bläddra i omdömen
 // skapar html för omdömen
@@ -227,11 +233,13 @@ function hideAllSlides() {
   for (let i = 0; i < testimonialsLength; i++) {
     testimonialsSlides[i].classList.remove('item-visible');
     testimonialsSlides[i].classList.add('item-hidden');
+    gsap.to('.item-hidden', { duration: 2, autoAlpha: 0 });
   }
 }
 
 // funktioner för att bläddra i karusellen vid klick
 
+// varför funkar inte animationen i första klicket?
 function nextSlide() {
   hideAllSlides();
   if (testimonialsSlidePosition === 0) {
@@ -240,6 +248,7 @@ function nextSlide() {
     testimonialsSlidePosition -= 1;
   }
   testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
+  gsap.to('.item-visible', { duration: 2, autoAlpha: 1 });
 }
 
 function prevSlide() {
@@ -249,7 +258,9 @@ function prevSlide() {
   } else {
     testimonialsSlidePosition += 1;
   }
+
   testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
+  gsap.to('.item-visible', { duration: 2, autoAlpha: 1 });
 }
 
 nextBtn?.addEventListener('click', prevSlide);

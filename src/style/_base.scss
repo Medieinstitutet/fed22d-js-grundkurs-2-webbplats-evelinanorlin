@@ -346,10 +346,11 @@ header{
 }
 
 .item-hidden{
-    display: none;
+    opacity: 1;
 }
 
 .item-visible{
+    opacity: 1;
     display: block;
 }
 
