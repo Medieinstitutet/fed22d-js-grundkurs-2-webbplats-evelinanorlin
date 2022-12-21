@@ -138,6 +138,7 @@ const deskNavLinks = deskNavItems?.getElementsByClassName('desk-nav-btn') as HTM
 const formBtn = document.querySelector('#form-btn');
 const messageSent = document.querySelector('#message-sent') as HTMLHtmlElement;
 const mobNavLink = document.querySelectorAll('.mob-nav-link');
+let menuOpen = false;
 
 // Nav
 
@@ -176,11 +177,15 @@ function hideMenu() {
 }
 
 function menuToggle() {
-  if (mobileMenu.style.display === 'block') {
-    gsap.to('.mobile-menu', { duration: 0.5, left: '1000px', onComplete: hideMenu });
-  } else {
+  if (!menuOpen) {
     mobileMenu.style.display = 'block';
+    burgerBtn.classList.add('open');
     gsap.to('.mobile-menu', { duration: 0.5, left: '0' });
+    menuOpen = true;
+  } else {
+    gsap.to('.mobile-menu', { duration: 0.5, left: '1000px', onComplete: hideMenu });
+    burgerBtn.classList.remove('open');
+    menuOpen = false;
   }
 }
 
