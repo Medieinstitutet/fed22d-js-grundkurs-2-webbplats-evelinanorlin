@@ -13,6 +13,7 @@ import './style/style.scss';
 // animation i hamburgaren
 // meny. Highligta den länken där en befinner sig just nu, alltså ändra medan scroll
 // svartvita bilder
+// ändra datumformatering i eventen
 
 // saker som är fel:
 // tillgänglighet på "services knappen", går ej att fokusera
@@ -25,14 +26,16 @@ import './style/style.scss';
 const events = [
   {
     id: 1,
-    name: 'Explorative Self Leadership',
+    name: 'Self Leadership',
     year: 2023,
-    month: 2,
+    month: 'February',
     date: 13,
-    location: 'Yogarummet majorna',
+    location: 'Yogarummet',
     startTime: '11:00',
     finishTime: '14:00',
-    shortDescription: 'A workshop where we explore our biological intuition.',
+    shortDescription: 'Vel sequi quis id praesentium nihil At recusandae eligendiet ipsam'
+    + 'ratione. Vel minus harum quo veritatis praesentium quo rerum rerum uteligendi dolorem'
+    + 'ut arum autem id totam enim non odit repellat.',
     longDescription: '<p>Welcome to an afternoon of exploratory self-leadership, in the sign'
     + 'of movement and yoga. </p> <p> In our fast-moving world, we make thousands of decisions'
     + 'every day, the brain spins faster than ever and is often involved in most of the decisions'
@@ -51,12 +54,14 @@ const events = [
     id: 2,
     name: 'The elastic body',
     year: 2023,
-    month: 4,
+    month: 'April',
     date: 20,
-    location: 'Yogarummet majorna',
+    location: 'Yogarummet',
     startTime: '12:00',
     finishTime: '17:00',
-    shortDescription: 'A workshop where we explore our fascia',
+    shortDescription: 'Vel sequi quis id praesentium nihil At recusandae eligendiet ipsam'
+    + 'ratione. Vel minus harum quo veritatis praesentium quo rerum rerum uteligendi dolorem'
+    + 'ut arum autem id totam enim non odit repellat.',
     longDescription: '<p>Welcome to an afternoon of exploratory self-leadership, in the sign'
     + 'of movement and yoga. </p> <p> In our fast-moving world, we make thousands of decisions'
     + 'every day, the brain spins faster than ever and is often involved in most of the decisions'
@@ -75,12 +80,14 @@ const events = [
     id: 3,
     name: 'Embodied flow classes',
     year: 2023,
-    month: 5,
+    month: 'May',
     date: 1,
     location: 'Fysiken Yoga',
     startTime: '19:00',
     finishTime: '20:30',
-    shortDescription: 'A workshop where we explore our fascia',
+    shortDescription: 'Vel sequi quis id praesentium nihil At recusandae eligendiet ipsam'
+    + 'ratione. Vel minus harum quo veritatis praesentium quo rerum rerum uteligendi dolorem'
+    + 'ut arum autem id totam enim non odit repellat.',
     longDescription: '<p>Welcome to an afternoon of exploratory self-leadership, in the sign'
     + 'of movement and yoga. </p> <p> In our fast-moving world, we make thousands of decisions'
     + 'every day, the brain spins faster than ever and is often involved in most of the decisions'
@@ -99,28 +106,18 @@ const events = [
 
 const testimonials = [
   {
-    id: 1,
     testimonial: 'Vel sequi quis id praesentium nihil At recusandae eligendi'
     + 'et ipsam ratione. Vel minus harum quo veritatis praesentium quo rerum rerum ut'
     + 'eligendi dolorem ut arum autem id totam enim non odit repellat.',
     name: 'Participant from fysiken',
   },
   {
-    id: 2,
     testimonial: 'Vel sequi quis id praesentium nihil At recusandae eligendi'
     + 'et ipsam ratione. Vel minus harum quo veritatis praesentium quo rerum rerum'
     + 'ut eligendi dolorem ut arum autem id totam enim non odit repellat.',
     name: 'Participant from Hagabadet',
   },
   {
-    id: 3,
-    testimonial: 'Vel sequi quis id praesentium nihil At recusandae eligendi'
-    + 'et ipsam ratione. Vel minus harum quo veritatis praesentium quo rerum rerum'
-    + 'ut eligendi dolorem ut arum autem id totam enim non odit repellat.',
-    name: 'Massage client',
-  },
-  {
-    id: 4,
     testimonial: 'Vel sequi quis id praesentium nihil At recusandae eligendi'
     + 'et ipsam ratione. Vel minus harum quo veritatis praesentium quo rerum rerum'
     + 'ut eligendi dolorem ut arum autem id totam enim non odit repellat.',
@@ -143,7 +140,6 @@ const deskNavLinks = deskNavItems?.getElementsByClassName('desk-nav-btn') as HTM
 const formBtn = document.querySelector('#form-btn');
 const messageSent = document.querySelector('#message-sent') as HTMLHtmlElement;
 const mobNavLink = document.querySelectorAll('.mob-nav-link');
-console.log(mobNavLink)
 
 // Nav
 
@@ -274,21 +270,25 @@ events.forEach((event) => {
        <img src=' /public/images/${event.img}'>
        <div class="event-description">
           <h3>${event.name}</h3>
-          <p><span>When?</span><br> ${event.date}-${event.month}-${event.year}</p>
-          <p><span>Where?</span><br> ${event.location}</p>
+          <div class="event-flex">
+            <p class="event-info"><span>When?</span><br>${event.month} ${event.date}, ${event.year}</p>
+            <p class="event-info"><span>Where?</span><br> ${event.location}</p>
+          </div>
           <p>${event.shortDescription}</p>
        </div>
        <button id="${event.id}">Read more</button>
        <div class="event-popup" id="event-popup">
+        <div class="popup-content">
           <div class="event-long-description">
             <button class="close-btn" id="${event.id}" onclick="window.location.href='#events';">X</button>
             <h2>${event.name}</h2>
             <img src='./public/images/${event.img}'>
-            <h3>${event.date}-${event.month}-${event.year}, ${event.startTime}-${event.finishTime}  ||  
+            <h3>${event.month} ${event.date}, ${event.startTime}-${event.finishTime}, at  
             ${event.location} </h3>
             <p>${event.longDescription}</p>
-            <button id ="${event.id}" onclick="window.location.href='#contact';">Sign up</button>
+            <button id ="${event.id}" onclick="window.location.href='#contact';">Sign up now</button>
           </div>
+        </div>
        </div>
      </div>`;
 });

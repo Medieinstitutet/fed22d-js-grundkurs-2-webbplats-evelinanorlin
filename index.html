@@ -6,7 +6,10 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/ico" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet">
   <script src="https://kit.fontawesome.com/bae5c522cf.js" crossorigin="anonymous"></script>
 
   <!-- lägga in metataggar och open graph -->
@@ -36,9 +39,9 @@
       <div class="desktop-nav">
         <div class="desktop-nav-flex" id="desktop-nav-items">
           <ul>
-            <li><a href="https://www.instagram.com/norlin.movement/" class="desk-nav-btn"><i
-                  class="fa-brands fa-square-instagram"></i></a></li>
-            <li><a href="https://www.facebook.com/EvelinaYogaMove" class="desk-nav-btn"><i
+            <li><a href="https://www.instagram.com/norlin.movement/" class="desk-nav-btn"
+                aria-label="Link to instagram"><i class="fa-brands fa-square-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/EvelinaYogaMove" class="desk-nav-btn" aria-label="Link to facebook"><i
                   class="fa-brands fa-square-facebook"></i></a></li>
           </ul>
           <ul>
@@ -66,7 +69,7 @@
       <div class="header-container" id="header">
         <h3>Evelina Norlin</h3>
         <h1>Yoga & Somatic movement</h1>
-        <button>Practice with me</button>
+        <button onclick="window.location.href='#services';">Practice with me</button>
         <div>
           <a href="https://www.instagram.com/norlin.movement/"><i class="fa-brands fa-square-instagram"></i></a>
           <a href="https://www.facebook.com/EvelinaYogaMove"><i class="fa-brands fa-square-facebook"></i></a>
@@ -74,9 +77,9 @@
       </div>
     </header>
     <section class="about" id="about">
+      <h2>About</h2>
       <div class="about-flex">
         <div class="about-me">
-          <h2>About</h2>
           <h3>Me</h3>
           <p>Vel sequi quis id praesentium nihil At recusandae
             eligendi et ipsam ratione. Vel minus harum quo veritatis
@@ -107,7 +110,7 @@
         <!-- hidden on mobile -->
         <p class="cite"><span>“You do not have to be good. <br>
             You do not have to walk on your knees
-            for a hundred miles through the desert, <br>
+            for a hundred miles through the desert,
             repenting. <br>
             You only have to let the soft animal of your
             body love what it loves.”<br>
