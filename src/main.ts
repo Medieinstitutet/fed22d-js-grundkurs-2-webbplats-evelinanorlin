@@ -232,8 +232,7 @@ const nextBtn = document.querySelector('#next-btn');
 function hideAllSlides() {
   for (let i = 0; i < testimonialsLength; i++) {
     testimonialsSlides[i].classList.remove('item-visible');
-    testimonialsSlides[i].classList.add('item-hidden');
-    gsap.to('.item-hidden', { duration: 2, autoAlpha: 0 });
+    gsap.set(testimonialsSlides[i], { autoAlpha: 0 });
   }
 }
 
@@ -248,7 +247,7 @@ function nextSlide() {
     testimonialsSlidePosition -= 1;
   }
   testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
-  gsap.to('.item-visible', { duration: 2, autoAlpha: 1 });
+  gsap.to(testimonialsSlides[testimonialsSlidePosition], { duration: 2, autoAlpha: 1 });
 }
 
 function prevSlide() {
@@ -258,13 +257,14 @@ function prevSlide() {
   } else {
     testimonialsSlidePosition += 1;
   }
-
   testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
-  gsap.to('.item-visible', { duration: 2, autoAlpha: 1 });
+  gsap.to(testimonialsSlides[testimonialsSlidePosition], { duration: 2, autoAlpha: 1 });
 }
 
 nextBtn?.addEventListener('click', prevSlide);
 prevBtn?.addEventListener('click', nextSlide);
+
+nextSlide(); // show the first one initially
 
 // Kod för att visa events på hemidan
 
