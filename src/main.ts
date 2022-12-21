@@ -5,15 +5,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import './style/style.scss';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare let gsap: any;
 // TODO
 
 // - RUBRIKER -> ska tonasin när de kommer i bild. Kanske en fräck animation i header-texten
-// SPRÅK -> knapp för att byta språk?
-// Animation i slidern.. OBS funkar ej på första klicket, fråga!
 // animation i hamburgaren
-// meny. Highligta den länken där en befinner sig just nu, alltså ändra medan scroll
-// svartvita bilder
-// ändra datumformatering i eventen
 
 // saker som är fel:
 // tillgänglighet på "services knappen", går ej att fokusera
@@ -229,7 +227,8 @@ function hideAllSlides() {
   for (let i = 0; i < testimonialsLength; i++) {
     testimonialsSlides[i].classList.remove('item-visible');
     testimonialsSlides[i].classList.add('item-hidden');
-    gsap.to('.item-hidden', { duration: 2, autoAlpha: 0 });
+
+    gsap.set(testimonialsSlides[i], { autoAlpha: 0 });
   }
 }
 
@@ -244,7 +243,8 @@ function nextSlide() {
     testimonialsSlidePosition -= 1;
   }
   testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
-  gsap.to('.item-visible', { duration: 2, autoAlpha: 1 });
+
+  gsap.to(testimonialsSlides[testimonialsSlidePosition], { duration: 2, autoAlpha: 1 });
 }
 
 function prevSlide() {
@@ -256,7 +256,8 @@ function prevSlide() {
   }
 
   testimonialsSlides[testimonialsSlidePosition].classList.add('item-visible');
-  gsap.to('.item-visible', { duration: 2, autoAlpha: 1 });
+
+  gsap.to(testimonialsSlides[testimonialsSlidePosition], { duration: 2, autoAlpha: 1 });
 }
 
 nextBtn?.addEventListener('click', prevSlide);
@@ -298,8 +299,8 @@ eventsHolder.innerHTML = eventsHtml;
 // visar en lång beskrivning av eventet vid klick på knappen och stänger när man trycker på "X"
 
 function openEvent(e: MouseEvent) {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  const currentEventPopup = document.getElementById(e?.target?.id)?.parentElement?.lastElementChild as HTMLElement;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, max-len
+  const currentEventPopup = document.getElementById((<HTMLElement>e.target).id)?.parentElement?.lastElementChild as HTMLElement;
 
   if (currentEventPopup.style.display === 'block') {
     setTimeout(() => { currentEventPopup.style.display = 'none'; }, 500);
@@ -382,7 +383,13 @@ class User {
 
 function sendContact() {
   if (isValid()) {
-    const usr = new User(firstName.value, lastName.value, email.value, subject.value, message.value);
+    const usr = new User(
+      firstNameInput.value,
+      lastNameInput.value,
+      emailInput.value,
+      subjectInput.value,
+      messageInput.value,
+    );
     messageSent.classList.add('show-message');
     console.log(usr);
   }
@@ -443,7 +450,7 @@ window.addEventListener('scroll', () => {
 //   }); /* Skapar första dagen i månaden, i rätt format (en-gb) och skriver ut dagen
 // (ex torsdag istället för 4) */
 
-//   const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);/* för att skapa "tomma" dagar i början av månaden */
+// const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);/* för att skapa "tomma" dagar i början av månaden */
 
 //   /* Visar aktuell månad över kalendern */
 //   monthContainer.innerHTML = `${date.toLocaleDateString('en-gb', { month: 'long' })} ${year}`;
