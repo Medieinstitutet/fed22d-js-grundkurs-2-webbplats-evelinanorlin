@@ -10,9 +10,6 @@ import './style/style.scss';
 declare let gsap: any;
 // TODO
 
-// - RUBRIKER -> ska tonasin när de kommer i bild. Kanske en fräck animation i header-texten
-// animation i hamburgaren
-
 // saker som är fel:
 // tillgänglighet på "services knappen", går ej att fokusera
 
