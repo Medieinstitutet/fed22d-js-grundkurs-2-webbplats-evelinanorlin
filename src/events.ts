@@ -23,7 +23,7 @@ const events = [
     + 'the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will'
     + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to'
     + 'socialize, or hang out as we say in Gothenburg.</p>',
-    img: 'explorative.png',
+    imgUrl: './public/images/explorative.png',
     alt: 'picture of person in movement',
   },
   {
@@ -50,7 +50,7 @@ const events = [
     + 'the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will'
     + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to'
     + 'socialize, or hang out as we say in Gothenburg.</p>',
-    img: 'fascia.png',
+    imgUrl: './public/images/fascia.png',
     alt: 'picture of person in movement',
   },
   {
@@ -77,7 +77,7 @@ const events = [
     + 'the bodys signals, which are always there and want to be heard.</p><p>During our hours together we will'
     + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to'
     + 'socialize, or hang out as we say in Gothenburg.</p>',
-    img: 'embodied_flow.png',
+    imgUrl: './public/images/embodied_flow.png',
     alt: 'picture of person in movement',
   },
 ];
