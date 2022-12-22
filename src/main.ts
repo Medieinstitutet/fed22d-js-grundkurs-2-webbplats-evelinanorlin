@@ -9,15 +9,13 @@ import './style/style.scss';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare let gsap: any;
 // TODO
+// visa med text vilka fält som behöver fyllas i i kontaktformulär vid validering
 
 // saker som är fel:
-// tillgänglighet på "services knappen", går ej att fokusera
-
-// import { events } from './src/events.js';
+// event-bilder går ej att se i pages
 
 // lägga detta i annan fil men det funkade inte.
-// hur löser jag att raden är för lång i objektet?
-// eslint-disable-next-line import/prefer-default-export
+
 const events = [
   {
     id: 1,
@@ -150,6 +148,7 @@ function hideDropdown() {
 }
 
 servicesLink?.addEventListener('click', showDropdown);
+servicesLink?.addEventListener('keypress', showDropdown);
 dropdown.addEventListener('mouseleave', hideDropdown);
 
 // Kod för att visuellt visa vilken länk i menyn som är aktiv.
@@ -270,7 +269,7 @@ prevBtn?.addEventListener('click', nextSlide);
 events.forEach((event) => {
   eventsHtml += `
      <div class="event-card">    
-       <img src=' /public/images/${event.img}'>
+       <img src=' ./public/images/${event.img}'>
        <div class="event-description">
           <h3>${event.name}</h3>
           <div class="event-flex">
