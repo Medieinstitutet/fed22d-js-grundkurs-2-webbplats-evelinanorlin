@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export const events = [
+const events = [
   {
     id: 1,
     name: 'Self Leadership',
@@ -79,3 +79,5 @@ export const events = [
     img: 'embodied_flow.png',
   },
 ];
+
+export default events;
