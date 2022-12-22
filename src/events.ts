@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 const events = [
   {
     id: 1,
@@ -25,6 +24,7 @@ const events = [
     + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to'
     + 'socialize, or hang out as we say in Gothenburg.</p>',
     img: 'explorative.png',
+    alt: 'picture of person in movement',
   },
   {
     id: 2,
@@ -51,6 +51,7 @@ const events = [
     + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to'
     + 'socialize, or hang out as we say in Gothenburg.</p>',
     img: 'fascia.png',
+    alt: 'picture of person in movement',
   },
   {
     id: 3,
@@ -77,6 +78,7 @@ const events = [
     + 'meditate, move, relax and reflect. After the session, there will be tea, snacks and the opportunity to'
     + 'socialize, or hang out as we say in Gothenburg.</p>',
     img: 'embodied_flow.png',
+    alt: 'picture of person in movement',
   },
 ];
 

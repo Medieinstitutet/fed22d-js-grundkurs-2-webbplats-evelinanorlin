@@ -104,6 +104,7 @@ button{
     height: 60px;
     width: 60px;
     border-radius: 40px;
+    z-index: 5;
 
     a{
     font-size: 3rem;
@@ -263,7 +264,6 @@ header{
 
             li{
                 a{
-                // font-family: migraBold, sans-serif;
                 font-weight: 600;
                 font-size: 2rem;
                 color: $mainBrandColor;
@@ -280,7 +280,7 @@ header{
                     background: #FFBD59;
                     background: radial-gradient(circle farthest-corner at center center, #FFBD59 0%, #51B4BC 100%);
                     padding: 15px 30px;
-                    color: $white;
+                    color: $background;
                     box-shadow: 2px 2px 10px #121212;
                     text-shadow: none;
                     border-radius: 40px;
@@ -422,6 +422,24 @@ header{
     }
 }
 
+.bullet-holder{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+
+    div{
+        background: transparent;
+        font-size: 4rem;
+        color: $white;
+        padding: 0;
+        opacity: 0.2;
+    }
+
+    .active-bullet{
+        opacity: 1;
+    }
+}
+
 //events
 
 .event-card{
@@ -441,6 +459,7 @@ header{
 
     button{
         margin: 0 auto;
+        margin-top: 100px;
     }
 
     .event-description{
@@ -561,4 +580,10 @@ header{
     .show-message{
         display: flex;
     }
+
+    ::placeholder { 
+        color: black;
+        opacity: 1;
+        font-style: italic;
+      }
 }
