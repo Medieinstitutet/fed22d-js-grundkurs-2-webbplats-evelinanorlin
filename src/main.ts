@@ -209,7 +209,7 @@ events.forEach((event) => {
           <div class="event-long-description">
             <button class="close-btn" id="${event.id}" onclick="window.location.href='#events';">X</button>
             <h2>${event.name}</h2>
-            <img src="${event.img}">
+            <img src="./images/${event.img}">
             <h3>${event.month} ${event.date}, ${event.startTime}-${event.finishTime}, at  
             ${event.location} </h3>
             <p>${event.longDescription}</p>
