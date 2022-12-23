@@ -8,12 +8,12 @@ $secondaryBrandColor: #51B4BC;
 // general
 @font-face {
     font-family: migraBold;
-    src: url("/public/fonts/Migra\ Extrabold\ 800.otf");
+    src: url("./fonts/Migra\ Extrabold\ 800.otf");
 }
 
 @font-face {
     font-family: migraLight;
-    src: url("/public/fonts/Migra\ Extralight\ 200.otf");
+    src: url("./fonts/Migra\ Extralight\ 200.otf");
 }
 
 html{
@@ -122,7 +122,7 @@ button{
 
 header{
     min-height: 100vh;
-    background-image: url("/images/updog.jpeg");
+    background-image: url("/images/updog.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -311,7 +311,7 @@ header{
 
     .background-image-2{
         height: 200px;
-        background-image: url("/images/yoga_class.jpeg");
+        background-image: url("/images/class.jpg");
         background-position: center;
     }
 
@@ -364,13 +364,13 @@ header{
     
     .background-image-3{
         height: 200px;
-        background-image: url("/images/squat.jpg");
+        background-image: url("./images/squat.jpg");
         background-position: left;
     }
 
     .background-image-4{
         height: 200px;
-        background-image: url("/images/massage.jpeg");
+        background-image: url("./images/massage.jpg");
         background-position: center;
     }
 
@@ -413,8 +413,13 @@ header{
         font-size: 3rem;
         transform: translateY(-50%);
         padding: 0;
-        opacity: 0.7;
+        opacity: 0.5;
         color: white;
+        transition: opacity .3s;
+
+        &:hover{
+            opacity: 1;
+        }
     }
 
     .next-btn{
