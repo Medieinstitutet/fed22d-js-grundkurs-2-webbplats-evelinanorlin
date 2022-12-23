@@ -79,7 +79,6 @@ for (let i = 0; i < deskNavLinks.length; i++) {
 }
 
 // Kod för att öppna och stänga mobilmeny, med animation
-
 function hideMenu() {
   mobileMenu.style.display = 'none';
 }
@@ -195,7 +194,7 @@ prevBtn?.addEventListener('click', nextSlide);
 events.forEach((event) => {
   eventsHtml += `
      <div class="event-card">    
-       <img src="${event.imgUrl}" alt="${event.alt}" loading= "lazy">
+       <img src="/images/${event.img}" alt="${event.alt}" loading= "lazy">
        <div class="event-description">
           <h3>${event.name}</h3>
           <div class="event-flex">
@@ -210,7 +209,7 @@ events.forEach((event) => {
           <div class="event-long-description">
             <button class="close-btn" id="${event.id}" onclick="window.location.href='#events';">X</button>
             <h2>${event.name}</h2>
-            <img src="${event.imgUrl}">
+            <img src="${event.img}">
             <h3>${event.month} ${event.date}, ${event.startTime}-${event.finishTime}, at  
             ${event.location} </h3>
             <p>${event.longDescription}</p>
