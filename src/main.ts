@@ -194,7 +194,7 @@ prevBtn?.addEventListener('click', nextSlide);
 events.forEach((event) => {
   eventsHtml += `
      <div class="event-card">    
-       <img src="/images/${event.img}" alt="${event.alt}" loading= "lazy">
+       <img src="./images/${event.img}" alt="${event.alt}" loading= "lazy">
        <div class="event-description">
           <h3>${event.name}</h3>
           <div class="event-flex">
