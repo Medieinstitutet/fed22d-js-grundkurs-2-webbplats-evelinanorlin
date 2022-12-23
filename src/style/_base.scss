@@ -8,12 +8,12 @@ $secondaryBrandColor: #51B4BC;
 // general
 @font-face {
     font-family: migraBold;
-    src: url("./fonts/Migra\ Extrabold\ 800.otf");
+    src: url("/fonts/Migra\ Extrabold\ 800.otf");
 }
 
 @font-face {
     font-family: migraLight;
-    src: url("./fonts/Migra\ Extralight\ 200.otf");
+    src: url("/fonts/Migra\ Extralight\ 200.otf");
 }
 
 html{
@@ -364,13 +364,13 @@ header{
     
     .background-image-3{
         height: 200px;
-        background-image: url("./images/squat.jpg");
+        background-image: url("/images/squat.jpg");
         background-position: left;
     }
 
     .background-image-4{
         height: 200px;
-        background-image: url("./images/massage.jpg");
+        background-image: url("/images/massage.jpg");
         background-position: center;
     }
 
