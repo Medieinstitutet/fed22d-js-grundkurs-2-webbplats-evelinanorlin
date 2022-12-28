@@ -123,9 +123,10 @@ button{
 header{
     min-height: 100vh;
     background-image: url("/images/updog.jpg");
-    background-position: center;
+    background-position: center center;
     background-size: cover;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     text-align: center;
 
     .header-container{
