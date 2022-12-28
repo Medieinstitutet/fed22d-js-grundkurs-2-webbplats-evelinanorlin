@@ -104,11 +104,16 @@
     }
 
     header{
+        background-attachment: fixed;
         margin-bottom: 0;
     }
 
     .about{
         margin-top: 0;
+
+        .background-image-1, .background-image-2{
+            background-attachment: fixed;
+        }
 
         h2{
             margin-bottom: 90px;
@@ -183,6 +188,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             height: 500px;
+            background-attachment: fixed;
         }
 
         .background-image-3,{
