@@ -1,0 +1,155 @@
+/* stylelint-disable no-descending-specificity */
+
+@media screen and (min-width: 750px) {
+
+    //general
+    h2{
+        font-size: 3.5rem;
+        margin-top: 120px;
+    }
+
+    h3{
+        font-size: 2.5rem;
+    }
+
+    h3, p{
+        margin-bottom: 30px;
+    }
+
+    p{
+        font-size: 1.2rem;
+        line-height: 2rem;
+        text-align: left;
+    }
+
+//nav
+.mobile-nav{
+    button{
+        top: 30px;
+        right: 20px;
+
+        span{
+            width: 70px;
+            height: 8px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .mobile-menu{
+        ul{
+            li{
+                a{
+                font-size: 3rem;
+            }
+        }
+    }
+}
+}
+
+   //header
+   header{
+    margin: 0 auto;
+
+    h1{
+        font-size: 5rem;
+    }
+
+    h3{
+        font-size: 3rem;
+    }
+
+    button{
+        margin-bottom: 30px;
+    }
+
+   }
+
+   .about{
+    .background-image-1, 
+    .background-image-2,{
+        height: 500px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+
+    p{
+        span{
+            font-size: 1.7rem;
+            line-height: 3rem;
+        }
+    }
+}
+
+.services{
+    .open-classes{
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+
+        h4{
+            font-size: 1.5rem;
+        }
+    
+        ul{
+            li{
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .background-image-3, 
+    .background-image-4,{
+         height: 500px;
+         margin-top: 60px;
+         margin-bottom: 60px;
+    }
+    
+    button{
+        margin-top: 60px;
+    }
+}
+
+.testimonials-holder{
+    button{
+        padding: 30px;
+    }
+}
+
+.event-card{
+    width: 70%;
+
+    img{
+        height: 500px;
+    }
+
+    .event-description{
+        h3{
+            font-size: 2.5rem;
+        }
+
+        p{
+            margin: 0;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .event-flex{
+            display: flex;
+            margin: 0 auto;
+            justify-content: center;
+
+            .event-info{
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+ .contact{
+    label{
+        font-size: 1.2rem;
+    }
+ }
+}
