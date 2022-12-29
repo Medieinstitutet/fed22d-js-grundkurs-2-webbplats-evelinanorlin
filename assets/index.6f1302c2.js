@@ -27,9 +27,9 @@ var P=Object.defineProperty;var Y=(e,t,n)=>t in e?P(e,t,{enumerable:!0,configura
           <div class="event-long-description">
             <button class="close-btn" id="${e.id}" onclick="window.location.href='#events';">X</button>
             <h2>${e.name}</h2>
-            <img src="./images/${e.img}">
             <h3>${e.month} ${e.date}, ${e.startTime}-${e.finishTime}, at  
             ${e.location} </h3>
+            <img src="./images/${e.img}">
             <p>${e.longDescription}</p>
             <button id ="${e.id}" onclick="window.location.href='#contact';">Sign up now</button>
           </div>
