@@ -4,7 +4,7 @@
 @media screen and (min-width: 1000px) {
 
     // nav
-    .navigation{
+.navigation{
     .mobile-nav{
         display: none;
     }
@@ -227,7 +227,7 @@
             img{
                 height: 300px;
                 object-fit: cover;
-                z-index: -1;
+                z-index: 1;
             }
 
             button{
@@ -253,6 +253,7 @@
                 img{
                     width: 80%;
                     height: 500px;
+                    display: block;
                 }
 
                 .close-btn{
