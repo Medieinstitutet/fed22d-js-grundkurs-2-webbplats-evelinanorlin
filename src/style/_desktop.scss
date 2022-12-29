@@ -4,6 +4,7 @@
 @media screen and (min-width: 1000px) {
 
     // nav
+    .navigation{
     .mobile-nav{
         display: none;
     }
@@ -28,7 +29,7 @@
         
                 ul{
                     list-style-type: none;
-                    background: rgba($background, 70%);
+                    background: rgba($background, 90%);
                     height: 200px;
                     padding: 30px;
                     margin-top: 0;
@@ -102,6 +103,7 @@
             }
     
         }
+    }
 
     header{
         background-attachment: fixed;
